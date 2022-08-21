@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Repository\Concerns\OrderInterface;
 use App\Services\Concerns\ShippingInterface;
 use App\Services\Couriers\CourierFactory;
-use App\Services\OrderService;
 use App\View;
 
 class HomeController
 {
     public function __construct(
-        private OrderService $orders,
+        private OrderInterface $orders,
         private ShippingInterface $shipping
     )
     {

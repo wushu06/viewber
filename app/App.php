@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App;
 
 use App\Exceptions\RouteNotFoundException;
-use App\Services\Concerns\OrderInterface;
+use App\Repository\Concerns\OrderInterface;
+use App\Repository\OrderRepository;
 use App\Services\Concerns\ShippingInterface;
-use App\Services\OrderService;
 use App\Services\ShippingService;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -18,7 +18,7 @@ class App
     public function __construct(private Container $container, protected Router $router, protected array $request)
     {
         $this->container->set(ShippingInterface::class, ShippingService::class);
-        $this->container->set(OrderInterface::class, OrderService::class);
+        $this->container->set(OrderInterface::class, OrderRepository::class);
     }
 
     public function run(): void

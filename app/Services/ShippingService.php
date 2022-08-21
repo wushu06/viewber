@@ -9,9 +9,9 @@ use App\Services\Concerns\ShippingInterface;
 class ShippingService implements ShippingInterface
 {
 
-    public function send(object $order, $courier)
+    public function send(object $orders, $courier): array
     {
-        return (new $courier)->dispatch($order);
+        return $courier->dispatch($orders);
     }
 
 }

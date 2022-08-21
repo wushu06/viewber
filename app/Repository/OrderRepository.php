@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Repository;
 
 use App\Models\Order;
-use App\Services\Concerns\OrderInterface;
+use App\Repository\Concerns\OrderInterface;
 
-class OrderService implements OrderInterface
+class OrderRepository implements OrderInterface
 {
     public function __construct(
         protected Order $order,
